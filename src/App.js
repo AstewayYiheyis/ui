@@ -1,7 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import {Button} from '@material-ui/core';
-import SignIn from "./SignIn";
 
 function App() {
   return (
@@ -19,8 +17,6 @@ function App() {
         >
           Learn React
         </a>
-        <SignIn/>
-        <Button color="primary">Hello World</Button>
       </header>
     </div>
   );
