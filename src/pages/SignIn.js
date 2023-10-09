@@ -11,14 +11,15 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {createTheme, ThemeProvider} from '@mui/material/styles';
+import { withStyles } from "@material-ui/core/styles";
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        ShipMyPackage
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -26,9 +27,23 @@ function Copyright(props) {
   );
 }
 
+
+
 // TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
+
+const CustomTypography = withStyles({
+  root: {
+    color: "#303030"
+  }
+})(Typography)
+
+const CustomFormControlLabel = withStyles({
+  root: {
+    color: "#303030"
+  }
+})(FormControlLabel);
 
 export default function SignIn() {
   const handleSubmit = (event) => {
@@ -55,9 +70,9 @@ export default function SignIn() {
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <CustomTypography component="h1" variant="h5">
             Sign in
-          </Typography>
+          </CustomTypography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
@@ -79,7 +94,7 @@ export default function SignIn() {
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
+            <CustomFormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
