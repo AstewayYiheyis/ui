@@ -10,7 +10,6 @@ export function TrackingInputContainer(props){
     function searchUsingTrackingNumber(event) {
         event.preventDefault();
         setShippmentInformation(ShippingClient.trackPackage(trackingNumber));
-        console.log(shippmentInformation);
     }
 
     function handleChange(event){
