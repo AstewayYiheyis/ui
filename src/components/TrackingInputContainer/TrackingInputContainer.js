@@ -1,6 +1,6 @@
 import {TextField, Button} from "@mui/material";
 import "./TrackingInputContainer.css";
-import {ShippingClient} from "../common_util_functions/ShippingClient";
+import {ShippingClient} from "../../common_util_functions/ShippingClient";
 import {useState} from "react";
 
 export function TrackingInputContainer(props){

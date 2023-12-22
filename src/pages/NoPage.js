@@ -1,3 +1,3 @@
-export function NoPage() {
+export default function NoPage() {
     return null;
 }
