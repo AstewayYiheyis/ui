@@ -17,8 +17,6 @@ export default function PageHeader({tabIndex}) {
         setValue(newValue);
     };
 
-    console.log("Value: ", value);
-
     return (
         <Box>
             <Box sx={{ borderBottom: 1, borderColor: "divider" }}>

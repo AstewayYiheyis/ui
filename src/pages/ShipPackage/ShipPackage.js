@@ -1,8 +1,9 @@
 import {useState} from "react";
 import PageHeader from "../../components/PageHeader";
-import * as React from "react";
+import React from "react";
 import './ShipPackage.css';
-import ShippingClient from "../../common_util_functions/ShippingClient";
+import shipping_client from "../../common_util_functions/shipping_client";
+import {apiCalls} from "../../common_util_functions/api_calls";
 
 
 export default function ShipPackage() {
@@ -11,7 +12,7 @@ export default function ShipPackage() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [weight, setWeight] = useState(0);
-    const [shippingType, setShippingType] = useState('');
+    const [shippingType, setShippingType] = useState('STANDARD');
 
     const handleSubmit = (event) => {
         const shippedPackage = {
@@ -26,7 +27,7 @@ export default function ShipPackage() {
         };
         event.preventDefault();
 
-        ShippingClient.shipPackage(shippedPackage);
+        shipping_client(apiCalls[1], shippedPackage);
         console.log("Shipped Package Final: ", shippedPackage);
     };
 

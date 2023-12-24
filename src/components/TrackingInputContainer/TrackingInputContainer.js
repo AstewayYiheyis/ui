@@ -1,15 +1,19 @@
 import {TextField, Button} from "@mui/material";
 import "./TrackingInputContainer.css";
-import {ShippingClient} from "../../common_util_functions/ShippingClient";
 import {useState} from "react";
+import shipping_client from "../../common_util_functions/shipping_client";
+import {apiCalls} from '../../common_util_functions/api_calls';
+import * as React from "react";
 
 export function TrackingInputContainer(props){
     const [trackingNumber, setTrackingNumber] = useState(0);
-    const [shippmentInformation, setShippmentInformation] = useState(null);
+    const [shipmentInformation, setShipmentInformation] = useState(null);
 
     function searchUsingTrackingNumber(event) {
         event.preventDefault();
-        setShippmentInformation(ShippingClient.trackPackage(trackingNumber));
+        setShipmentInformation(shipping_client(apiCalls[0], trackingNumber),
+            console.log("Shipment Information: ", shipmentInformation));
+        ;
     }
 
     function handleChange(event){
@@ -20,6 +24,8 @@ export function TrackingInputContainer(props){
         <div className="flex-container">
         <TextField id="tracking-number" label="Tracking Number" variant="standard" onChange={handleChange}/>
         <Button variant="contained" onClick={searchUsingTrackingNumber}>Track</Button>
+            <div>{shipmentInformation != null && shipmentInformation}
+            </div>
         </div>
     );
 }
