@@ -3,3 +3,9 @@
     margin: auto;
     width: 100%;
 }
+
+.main-container form{
+    margin: 10px;
+    border: 1px solid blue;
+    padding: 10px;
+}

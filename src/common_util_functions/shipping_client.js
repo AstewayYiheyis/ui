@@ -2,7 +2,7 @@
 function trackPackage(trackingNumber){
     const url = `http://localhost:8080/shipping?trackingNumber=${trackingNumber}`;
 
-    fetch(url)
+    return fetch(url)
         .then(res => res.json())
         .then(data => {
             console.log("Returned Data: ", data)
@@ -19,7 +19,7 @@ function shipPackage(shippedPackage){
         body: JSON.stringify(shippedPackage)
     };
 
-    fetch(url, options)
+    return fetch(url, options)
         .then((request) => request.json())
         .then(data => {
             return data;
@@ -30,11 +30,9 @@ function shipPackage(shippedPackage){
 export default function shipping_client(...args){
     switch (args[0]){
         case "trackPackage":
-            trackPackage(args[1]);
-            break;
+            return trackPackage(args[1]);
         case "shipPackage":
-            shipPackage(args[1]);
-            break;
+            return shipPackage(args[1]);
         default:
             console.error("The function you called doesn't exist in the ShippingClient class!");
     }

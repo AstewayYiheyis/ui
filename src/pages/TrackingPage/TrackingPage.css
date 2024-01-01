@@ -1,12 +1,8 @@
-#tracking-page{
-}
-
-
 #tracking-box{
     border: solid 1px #61dafb;
     max-width: 50%;
     padding: 10px;
-    margin: auto;
+    margin: 10px;
 }
 
 .main-container {
@@ -14,18 +10,4 @@
     margin: auto;
     width: 100%;
     border: solid 1px #61dafb;
-}
-
-.flex-container{
-    display: flex;
-    justify-content: space-between;
-    width: 50%;
-}
-
-.flex-container Button{
-    width: 40%;
-}
-
-Button{
-    margin: 10px;
 }
